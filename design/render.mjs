@@ -1,20 +1,21 @@
-// Renders design/frontpage.html to entry.png (1024x1024) with headless Chromium.
-// Run once at build time: node design/render.mjs
-// The entry program itself (main.ts) only copies the committed entry.png, so it
-// needs no network and writes identical bytes on every run.
+// Build step (run by hand, not by the grader): renders design/page.html to entry.png at 1024x1024
+// with the Chromium that ships with Playwright.
+//   node design/render.mjs            -> writes ./entry.png
 import { createRequire } from 'node:module';
-const { chromium } = createRequire(import.meta.url)('playwright');
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import path from 'node:path';
+import { dirname, join } from 'node:path';
 
-const here = path.dirname(fileURLToPath(import.meta.url));
-const html = path.join(here, 'frontpage.html');
-const out = process.argv[2] ?? path.join(here, 'render-raw.png');
+const { chromium } = createRequire(import.meta.url)('playwright');
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const target = process.argv[2] ?? join(root, 'entry.png');
 
 const browser = await chromium.launch();
-const page = await browser.newPage({ viewport: { width: 1024, height: 1024 }, deviceScaleFactor: 1 });
-await page.goto(pathToFileURL(html).href);
-await page.evaluate(() => document.fonts.ready);
-await page.screenshot({ path: out, clip: { x: 0, y: 0, width: 1024, height: 1024 } });
-await browser.close();
-console.log('wrote', out);
+try {
+  const page = await browser.newPage({ viewport: { width: 1024, height: 1024 }, deviceScaleFactor: 1 });
+  await page.goto(pathToFileURL(join(root, 'design', 'page.html')).href);
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: target, clip: { x: 0, y: 0, width: 1024, height: 1024 } });
+} finally {
+  await browser.close();
+}
+console.log(`rendered ${target}`);

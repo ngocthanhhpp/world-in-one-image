@@ -6,7 +6,7 @@
 
 One front page that sums up the world's news of Wednesday 25 November 2026: a giant dateline, a timeline of the day, a lead story and a dozen more from every region, each headline matched to a dated report from a named outlet, and every drawing labelled as an illustration.
 
-The page is designed in `design/frontpage.html` (HTML + hand-drawn inline SVG) and rendered once with headless Chromium (`node design/render.mjs`) to `entry.png`. `main.ts` copies that committed image to `/output/entry.png`: no network, byte-identical output on every run.
+The page is laid out by world region (Asia–Pacific, Americas, Europe · Mideast · Africa) under a lead story, with a timeline of the day across the foot. It is designed in `design/page.html` (HTML with hand-drawn inline SVG) and rendered once with headless Chromium (`node design/render.mjs`) to `entry.png`. `main.ts` writes that committed image to `/output/entry.png`: no network, byte-identical output on every run.
 
 ## Run it
 

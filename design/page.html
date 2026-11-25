@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Day on Earth — Wednesday 25 November 2026</title>
+<style>
+  :root {
+    --ink: #10172a;
+    --paper: #fdfcf8;
+    --line: #dcd6c8;
+    --soft: #4a5265;
+    --ap: #0f766e;      /* Asia-Pacific */
+    --am: #1e4fd6;      /* Americas */
+    --emea: #9a3412;    /* Europe, Middle East, Africa */
+    --space: #4c1d95;
+    --gold: #f2b134;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1024px; height: 1024px; overflow: hidden; }
+  body { background: var(--paper); color: var(--ink); font-family: "Inter", sans-serif; position: relative; }
+  .serif { font-family: "Bitstream Charter", serif; }
+
+  /* ===== masthead ===== */
+  header { height: 140px; padding: 12px 24px 0; border-bottom: 4px double var(--ink); }
+  .kicker { display: flex; justify-content: space-between; font-size: 11px; font-weight: 800;
+            letter-spacing: .16em; text-transform: uppercase; color: var(--soft); }
+  .kicker em { font-style: normal; color: var(--emea); }
+  h1 { font-family: "Bitstream Charter", serif; font-size: 75px; line-height: .98; text-align: center;
+       letter-spacing: -0.02em; margin-top: 4px; white-space: nowrap; }
+  .strap { text-align: center; font-size: 14.5px; font-weight: 600; margin-top: 8px; color: #253049; }
+  .strap b { color: var(--space); }
+
+  /* ===== lead ===== */
+  .lead { height: 244px; display: grid; grid-template-columns: 452px 1fr; gap: 22px;
+          padding: 14px 24px 14px; border-bottom: 1px solid var(--line); }
+  .lead .art { position: relative; border-radius: 6px; overflow: hidden; }
+  .lead h2 { font-family: "Bitstream Charter", serif; font-size: 38px; line-height: 1.02; margin-top: 8px; }
+  .lead p { font-size: 14px; line-height: 1.38; margin-top: 7px; color: #273047; }
+  .lead .facts { display: flex; gap: 8px; margin-top: 10px; }
+  .lead .facts span { font-size: 11px; font-weight: 700; background: #efe9fb; color: var(--space);
+                      padding: 3px 7px; border-radius: 3px; }
+
+  .label { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+           color: #fff; padding: 2px 7px; border-radius: 2px; }
+  .where { font-size: 10px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; margin-left: 6px; }
+  .src { font-size: 9.5px; color: #6a7183; margin-top: 3px; }
+  .src b { font-weight: 600; color: #3d4457; }
+  .illo { position: absolute; right: 6px; bottom: 6px; background: rgba(255,255,255,.9); color: #1d2433;
+          font-size: 8.5px; font-weight: 800; letter-spacing: .06em; padding: 1px 5px; border-radius: 2px; }
+
+  /* ===== regions ===== */
+  .regions { display: grid; grid-template-columns: 1.32fr 1fr 0.86fr; height: 544px; }
+  .col { padding: 10px 14px 0; border-right: 1px solid var(--line); }
+  .col:first-child { padding-left: 24px; }
+  .col:last-child { border-right: 0; padding-right: 24px; }
+  .col > h3 { font-size: 12px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; margin-top: -2px;
+              padding-bottom: 5px; border-bottom: 3px solid currentColor; margin-bottom: 4px; }
+  .item { display: grid; grid-template-columns: 46px 1fr; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .item:last-child { border-bottom: 0; }
+  .item svg { width: 46px; height: 46px; border-radius: 5px; }
+  .item h4 { font-family: "Bitstream Charter", serif; font-size: 16.5px; line-height: 1.1; }
+  .item p { font-size: 10.6px; line-height: 1.32; margin-top: 3px; color: #2c3448; }
+  .item .where { margin-left: 0; display: block; font-size: 9px; margin-bottom: 2px; }
+  .item.big { display: grid; grid-template-columns: 148px 1fr; gap: 12px; padding-top: 8px; }
+  .item.big .pic { position: relative; height: 108px; border-radius: 5px; overflow: hidden; }
+  .item.big .pic svg { width: 148px; height: 108px; border-radius: 0; }
+  .item.big h4 { font-size: 18.5px; margin-top: 2px; }
+  .note { margin-top: 8px; padding: 8px 10px; background: #f6ede4; border-left: 4px solid var(--emea); color: var(--ink); }
+  .note h4 { font-family: "Bitstream Charter", serif; font-size: 15px; line-height: 1.12; }
+  .note p { font-size: 10.4px; line-height: 1.3; margin-top: 3px; color: #2c3448; }
+
+  /* ===== timeline ===== */
+  .timeline { position: absolute; left: 0; right: 0; bottom: 28px; height: 66px; background: #eef0f5;
+              border-top: 2px solid var(--ink); padding: 8px 24px 0; }
+  .timeline .t-title { font-size: 10px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+  .track { position: relative; height: 40px; margin-top: 2px; }
+  .track::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 3px; background: #a3abbd; }
+  .pt { position: absolute; top: 0; width: 190px; padding-left: 0; font-size: 10.5px; line-height: 1.25; }
+  .pt i { display: block; width: 14px; height: 14px; border-radius: 50%; border: 3px solid #eef0f5; margin-top: 3px; }
+  .pt b { display: block; font-size: 11.5px; margin-top: 2px; }
+
+  footer { position: absolute; left: 0; right: 0; bottom: 0; height: 28px; background: var(--ink); color: #cfd6e6;
+           font-size: 10.5px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+  footer b { color: #fff; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker"><span>The Day on Earth · <em>one page</em></span><span>13 stories · 3 world regions · all reported this day</span></div>
+  <h1>Wednesday 25 November 2026</h1>
+  <div class="strap"><b>Pakistan’s first astronaut</b> launches on China’s Shenzhou-24 · Australia and Solomons sign treaty · AI doubts hit Asian stocks</div>
+</header>
+
+<section class="lead">
+  <div class="art">
+    <svg viewBox="0 18 452 216" width="452" height="216" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#140d3a"/><stop offset=".6" stop-color="#3b3f8f"/><stop offset="1" stop-color="#f59e5b"/>
+        </linearGradient>
+        <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fffbe6"/><stop offset=".4" stop-color="#ffb13b"/><stop offset="1" stop-color="#ff5a1f" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="452" height="234" fill="url(#dawn)"/>
+      <g fill="#fff"><circle cx="30" cy="20" r="1.2"/><circle cx="80" cy="44" r="1"/><circle cx="380" cy="24" r="1.3"/><circle cx="420" cy="70" r="1"/><circle cx="340" cy="52" r="1"/><circle cx="130" cy="16" r="1.2"/></g>
+      <!-- ascent arc -->
+      <path d="M226 214 C 226 150, 236 90, 268 30" stroke="#ffffff" stroke-opacity=".35" stroke-width="2" stroke-dasharray="4 5" fill="none"/>
+      <!-- ground -->
+      <path d="M0 206 Q 120 192 226 200 T 452 198 V234 H0Z" fill="#a8643d"/>
+      <!-- smoke -->
+      <g fill="#ece6dc"><circle cx="200" cy="204" r="18"/><circle cx="226" cy="196" r="22"/><circle cx="254" cy="204" r="17"/><circle cx="178" cy="212" r="12"/><circle cx="276" cy="212" r="12"/></g>
+      <path d="M216 158 H236 L250 204 H202Z" fill="url(#flame)"/>
+      <!-- rocket -->
+      <rect x="217" y="70" width="18" height="88" fill="#f7f8fc" stroke="#20263a" stroke-width="1.4"/>
+      <path d="M217 70 L226 36 L235 70Z" fill="#f7f8fc" stroke="#20263a" stroke-width="1.4"/>
+      <rect x="205" y="112" width="11" height="44" rx="3" fill="#e5e8f1" stroke="#20263a" stroke-width="1.2"/>
+      <rect x="236" y="112" width="11" height="44" rx="3" fill="#e5e8f1" stroke="#20263a" stroke-width="1.2"/>
+      <rect x="217" y="84" width="18" height="5" fill="#d0202a"/>
+      <!-- tower -->
+      <g stroke="#20263a" stroke-width="2" fill="none"><path d="M262 200 V76 M278 200 V76 M262 76 H278 M262 100 L278 120 M278 100 L262 120 M262 140 L278 160 M278 140 L262 160 M262 108 H236"/></g>
+      <!-- station, far away -->
+      <g transform="translate(330 46)">
+        <rect x="-4" y="-5" width="30" height="10" rx="3" fill="#dfe3ee"/>
+        <rect x="-34" y="-12" width="26" height="24" fill="#5b7bd6" stroke="#dfe3ee"/>
+        <rect x="30" y="-12" width="26" height="24" fill="#5b7bd6" stroke="#dfe3ee"/>
+        <text x="11" y="30" text-anchor="middle" font-family="Inter" font-size="10" font-weight="800" fill="#fff">TIANGONG</text>
+      </g>
+      <g font-family="Inter" fill="#fff">
+        <text x="18" y="150" font-size="10" font-weight="800" fill="#f2b134" letter-spacing="1.4">CREW</text>
+        <text x="18" y="166" font-size="12" font-weight="700">Tang Hongbo (cdr)</text>
+        <text x="18" y="181" font-size="12" font-weight="700">Wu Yi</text>
+        <text x="18" y="196" font-size="12" font-weight="700">Zeeshan Ali · Pakistan</text>
+      </g>
+    </svg>
+    <span class="illo">ILLUSTRATION</span>
+  </div>
+  <div>
+    <span class="label" style="background:var(--space)">Lead · Space</span><span class="where" style="color:var(--space)">Jiuquan, China</span>
+    <h2>Shenzhou-24 lifts off with Pakistan’s first astronaut</h2>
+    <p>A Long March-2F rocket launched at 08:18 Beijing time with commander Tang Hongbo, Wu Yi and Pakistani pilot Zeeshan Ali, the first foreign astronaut set to board China’s Tiangong space station.</p>
+    <div class="facts"><span>08:18 Beijing</span><span>Crew of 3</span><span>1st foreign crew member</span></div>
+    <div class="src" style="margin-top:8px">Sources: <b>The Japan Times · RTÉ · Dawn</b></div>
+  </div>
+</section>
+
+<section class="regions">
+  <!-- ========== ASIA-PACIFIC ========== -->
+  <div class="col" style="color:var(--ap)">
+    <h3>Asia–Pacific</h3>
+    <div class="item big" style="color:var(--ink)">
+      <div class="pic">
+        <svg viewBox="0 0 148 108" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <rect width="148" height="108" fill="#d9f0ec"/>
+          <path d="M0 90 Q 40 82 74 88 T 148 86 V108 H0Z" fill="#9fd3c9"/>
+          <text x="38" y="16" text-anchor="middle" font-family="Inter" font-size="9" font-weight="800" fill="#0f766e">AUSTRALIA</text>
+          <text x="110" y="16" text-anchor="middle" font-family="Inter" font-size="9" font-weight="800" fill="#14532d">SOLOMON IS.</text>
+          <rect x="40" y="24" width="68" height="62" rx="3" fill="#fff" stroke="#0f766e" stroke-width="2"/>
+          <text x="74" y="39" text-anchor="middle" font-family="Bitstream Charter" font-size="10" font-weight="700" fill="#0f766e">TREATY</text>
+          <g stroke="#a9c9c3" stroke-width="2"><line x1="48" y1="48" x2="100" y2="48"/><line x1="48" y1="56" x2="100" y2="56"/></g>
+          <path d="M48 74 c 5 -7 8 5 13 -2 s 6 3 9 -2" stroke="#123" stroke-width="1.5" fill="none"/>
+          <path d="M78 74 c 4 -6 7 5 11 -1 s 5 3 10 -3" stroke="#123" stroke-width="1.5" fill="none"/>
+          <path d="M0 62 H 36 Q 44 62 44 68 Q 44 74 36 74 H0Z" fill="#0f766e"/>
+          <path d="M148 62 H 112 Q 104 62 104 68 Q 104 74 112 74 H148Z" fill="#14532d"/>
+        </svg>
+        <span class="illo">ILLUSTRATION</span>
+      </div>
+      <div>
+      <span class="where" style="color:var(--ap);margin-left:0;display:block">Canberra · Diplomacy</span>
+      <h4>Australia and Solomon Islands sign “historic” treaty</h4>
+      <p>PMs Albanese and Wale agree no foreign military bases in Solomons; Honiara to consult Canberra on security.</p>
+      <div class="src"><b>ABC News · The Japan Times</b></div>
+      </div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#1b2130"/><path d="M5 12 L14 16 L20 26 L27 22 L34 32 L41 38" stroke="#ff6b6b" stroke-width="3" fill="none"/><path d="M41 38 l-7 -1 l4 -5z" fill="#ff6b6b"/></svg>
+      <div><span class="where" style="color:var(--ap)">Seoul · Markets</span>
+        <h4>Kospi leads Asian slide as AI doubts return</h4>
+        <p>Chipmakers sink after a US tech selloff; Taiwan and the ASX also fall.</p>
+        <div class="src"><b>Bloomberg · Market Index</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#dff1ee"/><text x="23" y="29" text-anchor="middle" font-family="Bitstream Charter" font-weight="700" font-size="15" fill="#0f766e">4.9%</text><path d="M23 8 V2 M19 6 L23 2 L27 6" stroke="#d0202a" stroke-width="2" fill="none"/></svg>
+      <div><span class="where" style="color:var(--ap)">Australia · Economy</span>
+        <h4>Inflation jumps to 4.9%, a three-year high</h4>
+        <p>Annual rate to October; Treasurer: “unwelcome but unsurprising”.</p>
+        <div class="src"><b>ABC News (ABS data)</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#6b3b1f"/><path d="M0 36 Q 23 28 46 34 V46 H0Z" fill="#2e241b"/><path d="M12 36 q 4 -16 9 -4 q 3 -10 7 0 q 3 -8 6 4Z" fill="#ff7a1a"/><path d="M17 36 q 3 -8 6 -1 q 2 -5 5 1Z" fill="#ffd166"/></svg>
+      <div><span class="where" style="color:var(--ap)">Flinders Island, Tasmania</span>
+        <h4>“Too late to leave” as bushfire passes 3,000 ha</h4>
+        <p>Lightning-sparked blaze threatens Killiecrankie, Leeka, Mount Tanner.</p>
+        <div class="src"><b>ABC News · Pulse Tasmania</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#f3e3e1"/><g fill="#8a1c14"><rect x="9" y="28" width="28" height="12"/><rect x="18" y="16" width="10" height="12"/><path d="M18 16 L23 8 L28 16Z"/></g></svg>
+      <div><span class="where" style="color:var(--ap)">Tokyo · Politics</span>
+        <h4>Opposition moves to censure Japan’s education minister</h4>
+        <p>Six parties target Yoshihiro Seki over fundraisers; Takaichi keeps him.</p>
+        <div class="src"><b>The Japan Times · Bloomberg</b></div></div>
+    </div>
+  </div>
+
+  <!-- ========== AMERICAS ========== -->
+  <div class="col" style="color:var(--am)">
+    <h3>Americas</h3>
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#e3eafc"/><g fill="#1e4fd6"><rect x="6" y="32" width="34" height="8"/><rect x="13" y="24" width="20" height="8"/><path d="M15 24 Q 23 6 31 24Z"/><rect x="22" y="4" width="2" height="6"/></g></svg>
+      <div><span class="where" style="color:var(--am)">Washington · Tech & politics</span>
+        <h4>Republicans rebuke Trump over Huang’s return to Nvidia</h4>
+        <p>At least six GOP senators question the reinstatement, which Trump says he “convinced” the board to make.</p>
+        <div class="src"><b>ABC News · CNN</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#1e3a8a"/><g fill="#fff"><path d="M23 6 L26 20 L23 23 L20 20Z"/><path d="M23 40 L20 26 L23 23 L26 26Z"/><path d="M6 23 L20 20 L23 23 L20 26Z"/><path d="M40 23 L26 26 L23 23 L26 20Z"/></g></svg>
+      <div><span class="where" style="color:var(--am)">Palm Beach, Florida · NATO</span>
+        <h4>Trump to meet NATO chief Rutte at Mar-a-Lago</h4>
+        <p>Late-afternoon talks as European allies push for a role in Ukraine peace efforts.</p>
+        <div class="src"><b>Reuters · White House</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#e3eafc"/><g fill="#1e4fd6"><rect x="5" y="16" width="16" height="11"/><rect x="25" y="16" width="16" height="11"/><rect x="5" y="30" width="16" height="11"/><rect x="25" y="30" width="16" height="11"/></g><text x="23" y="12" text-anchor="middle" font-family="Inter" font-weight="900" font-size="10" fill="#1e4fd6">+ %</text></svg>
+      <div><span class="where" style="color:var(--am)">Washington · Trade</span>
+        <h4>US readies new tariffs on 16 economies</h4>
+        <p>AP sources: Section 301 duties aimed at China, the EU and others over subsidised production.</p>
+        <div class="src"><b>AP via BNN Bloomberg</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#e3eafc"/><path d="M6 18 L11 8 H35 L40 18Z" fill="#1e3a8a"/><rect x="8" y="18" width="30" height="20" fill="#fff" stroke="#1e3a8a" stroke-width="2"/><rect x="19" y="26" width="8" height="12" fill="#1e3a8a"/><g stroke="#d0202a" stroke-width="2"><line x1="2" y1="42" x2="44" y2="42" stroke-dasharray="4 3"/></g></svg>
+      <div><span class="where" style="color:var(--am)">Cartagena, Colombia</span>
+        <h4>Gunmen hold shoppers in supermarket siege</h4>
+        <p>About 25 held after a failed armoured-truck robbery; police surround the store and several hostages are freed.</p>
+        <div class="src"><b>France 24 · CBS News · AFP</b></div></div>
+    </div>
+  </div>
+
+  <!-- ========== EUROPE, MIDDLE EAST, AFRICA ========== -->
+  <div class="col" style="color:var(--emea)">
+    <h3>Europe · Mideast · Africa</h3>
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#22308f"/><g fill="#ffd166"><circle cx="23" cy="9" r="2"/><circle cx="30" cy="11" r="2"/><circle cx="35" cy="16" r="2"/><circle cx="37" cy="23" r="2"/><circle cx="35" cy="30" r="2"/><circle cx="30" cy="35" r="2"/><circle cx="23" cy="37" r="2"/><circle cx="16" cy="35" r="2"/><circle cx="11" cy="30" r="2"/><circle cx="9" cy="23" r="2"/><circle cx="11" cy="16" r="2"/><circle cx="16" cy="11" r="2"/></g></svg>
+      <div><span class="where" style="color:var(--emea)">Brussels · EU</span>
+        <h4>EU and Western Balkan leaders hold summit</h4>
+        <p>Costa and von der Leyen host talks on membership, reforms and security.</p>
+        <div class="src"><b>Council of the EU</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#fbe7d3"/><path d="M18 44 V12 L23 4 L28 12 V44Z" fill="#7c2d12"/><g fill="#fbe7d3"><rect x="21" y="16" width="4" height="2"/><rect x="21" y="22" width="4" height="2"/><rect x="21" y="28" width="4" height="2"/></g><circle cx="32" cy="16" r="6" fill="#ff7a1a"/><circle cx="34" cy="13" r="3" fill="#ffd166"/></svg>
+      <div><span class="where" style="color:var(--emea)">Riyadh, Saudi Arabia</span>
+        <h4>Riyadh’s PIF tower struck again; 11 injured</h4>
+        <p>Coalition calls it a “terrorist attack” as Houthi strikes mount.</p>
+        <div class="src"><b>RTHK · SCMP · AFP</b></div></div>
+    </div>
+
+    <div class="item" style="color:var(--ink)">
+      <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg"><rect width="46" height="46" fill="#e1f3e7"/><path d="M14 8 H32 V16 A9 9 0 0 1 14 16Z" fill="#d4a017"/><rect x="21" y="25" width="4" height="7" fill="#d4a017"/><rect x="15" y="32" width="16" height="5" fill="#15803d"/><path d="M14 10 H9 Q9 18 15 18 M32 10 H37 Q37 18 31 18" stroke="#d4a017" stroke-width="2" fill="none"/></svg>
+      <div><span class="where" style="color:var(--emea)">Dakar, Senegal · Football</span>
+        <h4>Senegal fans celebrate restored AFCON title</h4>
+        <p>Sport’s top court reinstates Senegal’s 1-0 final win over Morocco; Morocco vows to keep fighting.</p>
+        <div class="src"><b>Al Jazeera · AFP</b></div></div>
+    </div>
+
+    <div class="note">
+      <span class="where" style="color:var(--emea);margin-left:0;display:block;margin-bottom:2px">Worldwide · UN day</span>
+      <h4>Day for the Elimination of Violence against Women</h4>
+      <p>Opens the UN’s annual 16 days of activism.</p>
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="t-title">The day as it unfolded — in the order it reached each city</div>
+  <div class="track">
+    <div class="pt" style="left:0"><i style="background:var(--ap)"></i><b>09:00 Seoul — Kospi slides</b></div>
+    <div class="pt" style="left:196px"><i style="background:var(--space)"></i><b>08:18 Beijing — liftoff</b></div>
+    <div class="pt" style="left:392px"><i style="background:var(--ap)"></i><b>11:30 Canberra — CPI 4.9%</b></div>
+    <div class="pt" style="left:588px"><i style="background:var(--emea)"></i><b>Brussels — Balkans summit</b></div>
+    <div class="pt" style="left:784px"><i style="background:var(--am)"></i><b>Palm Beach — Trump–Rutte</b></div>
+  </div>
+</section>
+
+<footer>
+  <span>Every headline matches a report dated 25 Nov 2026 · drawings are <b>illustrations</b>, not photos</span>
+  <span>Sources named under each story</span>
+</footer>
+</body>
+</html>
